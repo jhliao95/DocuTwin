@@ -1167,6 +1167,10 @@ body {
   -webkit-text-fill-color: transparent;
 }
 
+[data-theme="dark"] .app-logo {
+  filter: brightness(0.8) invert(1);
+}
+
 /* 响应式调整 */
 @media (max-width: 768px) {
   .app-header {
