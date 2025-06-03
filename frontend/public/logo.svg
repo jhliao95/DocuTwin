@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="512" height="512" viewBox="0 0 512 512" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景圆 -->
+  <circle cx="256" cy="256" r="248" fill="url(#gradient)" stroke="#4CAF50" stroke-width="16"/>
+  
+  <!-- 文档图标 -->
+  <path d="M176 128h160M176 192h160M176 256h96" stroke="#FFFFFF" stroke-width="24" stroke-linecap="round"/>
+  <path d="M336 128v256h-160V128h160z" stroke="#FFFFFF" stroke-width="24" stroke-linejoin="round" fill="none"/>
+  
+  <!-- 镜像效果 -->
+  <path d="M336 128v256h-160V128h160z" stroke="#FFFFFF" stroke-width="24" stroke-linejoin="round" fill="none" 
+        transform="translate(40, 0) scale(-1, 1)"/>
+  <path d="M176 128h160M176 192h160M176 256h96" stroke="#FFFFFF" stroke-width="24" stroke-linecap="round"
+        transform="translate(40, 0) scale(-1, 1)"/>
+  
+  <!-- 渐变定义 -->
+  <defs>
+    <linearGradient id="gradient" x1="0" y1="0" x2="512" y2="512" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4CAF50"/>
+      <stop offset="100%" stop-color="#2196F3"/>
+    </linearGradient>
+  </defs>
+</svg> 

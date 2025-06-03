@@ -1,0 +1,109 @@
+:root {
+  /* === 颜色系统 === */
+  /* 主色调 */
+  --primary-color: #FF6F00;
+  --primary-color-light: #FFA040;
+  --primary-color-dark: #C43E00;
+  --primary-color-bright: #FFB74D;
+
+  /* 次要色调 */
+  --secondary-color: #4CAF50;
+  --secondary-color-light: #81C784;
+  --secondary-color-dark: #388E3C;
+  --secondary-color-bright: #A5D6A7;
+
+  /* 强调色 */
+  --accent-color-1: #2196F3;
+  --accent-color-2: #E91E63;
+
+  /* 危险色 */
+  --danger-color: #F44336;
+  --danger-color-bright: #EF5350;
+
+  /* 表面颜色 */
+  --surface-color-light: #FFFFFF;
+  --surface-color-mid: #F5F5F5;
+  --surface-color-dark: #E0E0E0;
+
+  /* 背景色 */
+  --background-light: #FFFFFF;
+  --background-dark: #212121;
+
+  /* 文本颜色 */
+  --text-color-dark: #212121;
+  --text-color-medium: #757575;
+  --text-color-light: #BDBDBD;
+  --text-color-button-dark: #212121;
+  --text-color-button-light: #FFFFFF;
+
+  /* 边框颜色 */
+  --border-color-light: #E0E0E0;
+  --border-color-interactive: #BDBDBD;
+
+  /* === 间距系统 === */
+  --spacing-xs: 4px;
+  --spacing-sm: 8px;
+  --spacing-md: 16px;
+  --spacing-lg: 24px;
+  --spacing-xl: 32px;
+
+  /* === 字体系统 === */
+  --font-family-main: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-family-display: 'SF Pro Display', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  
+  --font-size-xs: 12px;
+  --font-size-sm: 14px;
+  --font-size-md: 16px;
+  --font-size-lg: 20px;
+  --font-size-xl: 24px;
+
+  /* === 圆角系统 === */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 12px;
+
+  /* === 阴影系统 === */
+  --shadow-subtle: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-strong: 0 8px 16px rgba(0, 0, 0, 0.1);
+  --shadow-highlight-primary: 0 0 15px rgba(255, 111, 0, 0.3);
+  --shadow-highlight-secondary: 0 0 15px rgba(76, 175, 80, 0.3);
+
+  /* === 动画系统 === */
+  --transition-duration-fast: 150ms;
+  --transition-duration-normal: 250ms;
+  --transition-duration-slow: 350ms;
+  --transition-timing-ease-out: cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-timing-ease-in: cubic-bezier(0.4, 0, 1, 1);
+  --transition-timing-spring: cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* 深色主题变量 */
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* 表面颜色 */
+    --surface-color-light: #424242;
+    --surface-color-mid: #303030;
+    --surface-color-dark: #212121;
+
+    /* 背景色 */
+    --background-light: #303030;
+    --background-dark: #212121;
+
+    /* 文本颜色 */
+    --text-color-dark: #FFFFFF;
+    --text-color-medium: #BDBDBD;
+    --text-color-light: #757575;
+    --text-color-button-dark: #212121;
+    --text-color-button-light: #FFFFFF;
+
+    /* 边框颜色 */
+    --border-color-light: #424242;
+    --border-color-interactive: #757575;
+
+    /* 阴影系统 */
+    --shadow-subtle: 0 2px 4px rgba(0, 0, 0, 0.2);
+    --shadow-medium: 0 4px 8px rgba(0, 0, 0, 0.2);
+    --shadow-strong: 0 8px 16px rgba(0, 0, 0, 0.2);
+  }
+} 
