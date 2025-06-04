@@ -376,6 +376,16 @@ body {
   color: var(--text-color-muted);
 }
 
+.empty-content {
+  display: flex; /* 使用 flexbox 布局 */
+  flex-direction: column; /* 内容垂直排列 */
+  justify-content: center; /* 垂直居中 */
+  align-items: center; /* 水平居中 */
+  height: 100%; /* 占满父容器的高度 */
+  text-align: center; /* 文本居中 */
+  padding: var(--spacing-md); /* 添加一些内边距 */
+}
+
 /* === Document Viewers === */
 .document-viewer {
   position: absolute; /* **关键**: 绝对定位 */
