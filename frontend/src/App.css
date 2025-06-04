@@ -7,8 +7,17 @@
   padding: 0;
 }
 
-html {
-  scroll-behavior: smooth;
+html,
+body,
+#root,
+.App,
+.app-container {
+  height: 100%;
+  min-height: 100vh; /* 确保占满整个视口高度 */
+  overflow: hidden; /* 禁用整个网页的滚动 */
+  display: flex;
+  flex-direction: column;
+  flex: 1; /* 确保在可能的 flex 父容器中伸展 */
 }
 
 body {
@@ -16,7 +25,6 @@ body {
   line-height: 1.6;
   color: var(--text-color-primary);
   background: var(--background-primary);
-  min-height: 100vh;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -131,24 +139,9 @@ body {
 }
 
 /* === App Styles === */
-.App {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding: var(--spacing-lg);
-  gap: var(--spacing-lg);
-  position: relative;
-}
+/* .App 的样式已合并到上面的 body, #root 规则中 */
 
-.app-container {
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  padding: var(--spacing-lg);
-  background: var(--background-primary);
-  color: var(--text-color-primary);
-  transition: background var(--transition-duration-normal) ease-in-out, color var(--transition-duration-normal) ease-in-out;
-}
+/* .app-container 的样式已合并 */
 
 /* === App Header === */
 .app-header {
@@ -161,6 +154,14 @@ body {
   box-shadow: var(--shadow-sm);
   margin-bottom: var(--spacing-lg);
   transition: all var(--transition-duration-normal) ease-in-out;
+  flex-shrink: 0; /* 防止头部因 flex 布局而缩小 */
+}
+
+.header-left-content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--spacing-xs);
 }
 
 .brand {
@@ -183,23 +184,18 @@ body {
 .brand h1 {
   font-size: var(--font-size-xl);
   font-weight: 700;
-  color: var(--text-color-primary);
+  color: var(--color-black); /* 亮色模式下为黑色 */
   font-family: var(--font-family-sans);
   margin: 0;
-  background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  transition: all var(--transition-duration-normal) ease-in-out;
+  transition: color var(--transition-duration-normal) ease-in-out;
 }
 
 [data-theme="dark"] .brand h1 {
-  background: linear-gradient(90deg, var(--primary-color-light), var(--secondary-color-light));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: var(--color-white); /* 深色模式下为白色 */
 }
 
 .brand-tagline {
-  font-size: var(--font-size-sm);
+    font-size: var(--font-size-sm);
   color: var(--text-color-secondary);
   margin-left: var(--spacing-sm);
   align-self: flex-end;
@@ -207,24 +203,36 @@ body {
   transition: color var(--transition-duration-normal) ease-in-out;
 }
 
+.product-description {
+  font-size: var(--font-size-base);
+  color: var(--text-color-primary);
+  background-color: transparent;
+  border: none;
+  margin-top: var(--spacing-sm);
+  text-align: center;
+  max-width: 800px;
+  line-height: 1.5;
+}
+
 /* === Main Content & Panels === */
 .main-content {
   display: flex;
-  flex: 1;
+  flex: 1; /* 确保 main-content 填充 app-container 的剩余空间 */
   gap: var(--spacing-lg);
   min-height: 0; /* 允许 flex 容器缩小 */
+  overflow: hidden; /* 防止 main-content 自身产生滚动条 */
 }
 
 .panel {
-  flex: 1;
+  flex: 1; /* 确保面板填充 main-content 的剩余空间 */
   display: flex;
   flex-direction: column;
   border: 1px solid var(--border-color-light);
   border-radius: var(--border-radius-lg);
   background: var(--surface-card);
   box-shadow: var(--shadow-sm);
-  overflow: hidden;
-  transition: all var(--transition-duration-normal) ease-in-out;
+  overflow: hidden; /* 确保 panel 内部内容不会溢出 */
+  min-height: 0; /* 允许面板缩小 */
 }
 
 .panel-header {
@@ -235,7 +243,7 @@ body {
   justify-content: space-between;
   align-items: center;
   color: var(--text-color-primary);
-  transition: all var(--transition-duration-normal) ease-in-out;
+  flex-shrink: 0; /* 防止头部压缩 */
 }
 
 .panel-header h2 {
@@ -244,15 +252,12 @@ body {
 }
 
 .panel-content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  min-height: 600px;
-  overflow: auto;
-  background: var(--surface-card);
-  border-radius: 0 0 var(--border-radius-lg) var(--border-radius-lg);
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.02);
-  transition: all var(--transition-duration-normal) ease-in-out;
+  flex: 1; /* 确保 panel-content 填充 panel 的剩余空间 */
+  display: flex; /* 将 panel-content 设为 flex 容器，尽管子元素是绝对定位，有助于调试 */
+  flex-direction: column; /* flex 方向为列 */
+  min-height: 0; /* 允许内容区域收缩 */
+  overflow: hidden; /* 防止 panel-content 本身滚动 */
+  position: relative; /* **关键**: 为绝对定位的子元素提供参考 */
 }
 
 /* === Zoom Controls & Buttons === */
@@ -373,47 +378,50 @@ body {
 
 /* === Document Viewers === */
 .document-viewer {
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  position: relative;
+  position: absolute; /* **关键**: 绝对定位 */
+  top: 0; /* **关键**: 填充父容器 */
+  left: 0; /* **关键**: 填充父容器 */
+  right: 0; /* **关键**: 填充父容器 */
+  bottom: 0; /* **关键**: 填充父容器 */
+  overflow-y: auto !important; /* **关键**: 强制启用垂直滚动 */
   background: var(--surface-card);
-  border-radius: var(--border-radius-lg);
-  scroll-behavior: smooth;
+  padding: var(--spacing-md); /* 文档内边距 */
+  /* 取消 flexbox 相关的属性，因为现在使用绝对定位 */
+  /* flex: 1; */
+  /* min-height: 0; */
 }
 
 .pdf-viewer {
-  width: 100%;
-  height: 100%;
-  overflow: auto;
+  position: absolute; /* **关键**: 绝对定位 */
+  top: 0; /* **关键**: 填充父容器 */
+  left: 0; /* **关键**: 填充父容器 */
+  right: 0; /* **关键**: 填充父容器 */
+  bottom: 0; /* **关键**: 填充父容器 */
+  overflow: hidden; /* 防止 PDF 查看器本身滚动 */
   background-color: var(--surface-card);
-  padding: var(--spacing-md);
 }
 
 .pdf-viewer object {
   width: 100%;
-  height: 100%;
+  height: 100%; /* 让 object 占满 pdf-viewer 的空间 */
   border: none;
   background: var(--surface-card);
 }
 
-/* 自定义滚动条 - 浅色模式 */
+/* 自定义滚动条样式 */
 .document-viewer::-webkit-scrollbar,
-.panel-content::-webkit-scrollbar,
 .pdf-viewer::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 .document-viewer::-webkit-scrollbar-track,
-.panel-content::-webkit-scrollbar-track,
 .pdf-viewer::-webkit-scrollbar-track {
   background: var(--background-secondary);
   border-radius: var(--border-radius-full);
 }
 
 .document-viewer::-webkit-scrollbar-thumb,
-.panel-content::-webkit-scrollbar-thumb,
 .pdf-viewer::-webkit-scrollbar-thumb {
   background: var(--border-color-medium);
   border-radius: var(--border-radius-full);
@@ -421,7 +429,6 @@ body {
 }
 
 .document-viewer::-webkit-scrollbar-thumb:hover,
-.panel-content::-webkit-scrollbar-thumb:hover,
 .pdf-viewer::-webkit-scrollbar-thumb:hover {
   background: var(--border-color-dark);
 }
@@ -702,8 +709,8 @@ body {
   }
 
   .theme-toggle {
-    width: 40px;
-    height: 40px;
+  width: 40px;
+  height: 40px;
   }
 
   .theme-toggle-icon {
