@@ -374,6 +374,7 @@ body {
 .supported-formats {
   font-size: var(--font-size-sm);
   color: var(--text-color-muted);
+  margin-top: var(--spacing-sm); /* 在格式说明上方增加一点空间 */
 }
 
 .empty-content {
@@ -384,6 +385,14 @@ body {
   height: 100%; /* 占满父容器的高度 */
   text-align: center; /* 文本居中 */
   padding: var(--spacing-md); /* 添加一些内边距 */
+  background-color: var(--background-secondary); /* 添加一个背景色，与 dropzone 区分 */
+  border-radius: var(--border-radius-lg); /* 继承面板圆角 */
+}
+
+.empty-content p {
+    color: var(--text-color-secondary);
+    font-size: var(--font-size-base);
+    margin-bottom: var(--spacing-xs); /* 在主提示文字下方增加一点空间 */
 }
 
 /* === Document Viewers === */
