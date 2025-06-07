@@ -765,3 +765,86 @@ body {
     height: 20px;
   }
 }
+
+/* 欢迎页样式 */
+.welcome-overlay {
+  position: fixed;
+  z-index: 9999;
+  inset: 0;
+  background: linear-gradient(135deg, #3ec6a6 0%, #3a8dde 100%) !important;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeInBg 1s;
+}
+
+@keyframes fadeInBg {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+.welcome-content {
+  text-align: center;
+  background: rgba(255,255,255,0.92);
+  border-radius: 24px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+  padding: 48px 32px 40px 32px;
+  animation: floatIn 1.2s cubic-bezier(.23,1.01,.32,1);
+}
+
+@keyframes floatIn {
+  0% { opacity: 0; transform: translateY(40px) scale(0.95); }
+  100% { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+.welcome-logo {
+  width: 88px;
+  height: 88px;
+  margin-bottom: 24px;
+  filter: drop-shadow(0 2px 8px rgba(58,141,222,0.10));
+  animation: fadeInLogo 1.2s 0.2s backwards;
+}
+
+@keyframes fadeInLogo {
+  from { opacity: 0; transform: scale(0.7); }
+  to { opacity: 1; transform: scale(1); }
+}
+
+.welcome-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  color: #2176ae !important;
+  margin-bottom: 16px;
+  letter-spacing: 2px;
+  animation: fadeInText 1.2s 0.4s backwards;
+}
+
+.welcome-desc {
+  font-size: 1.15rem;
+  color: #1b3a4b !important;
+  margin-bottom: 32px;
+  animation: fadeInText 1.2s 0.6s backwards;
+}
+
+@keyframes fadeInText {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.welcome-btn {
+  font-size: 1.1rem;
+  font-weight: 600;
+  padding: 12px 36px;
+  border-radius: 999px;
+  border: none;
+  background: linear-gradient(90deg, #3ec6a6 0%, #3a8dde 100%) !important;
+  color: #fff !important;
+  box-shadow: 0 2px 8px rgba(58,141,222,0.08);
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  animation: fadeInText 1.2s 0.8s backwards;
+}
+.welcome-btn:hover {
+  background: linear-gradient(90deg, #2fae8c 0%, #2176ae 100%) !important;
+  transform: translateY(-2px) scale(1.04);
+}

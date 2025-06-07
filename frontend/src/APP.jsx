@@ -10,6 +10,20 @@ import * as pdfjsLib from 'pdfjs-dist';
 // 配置 PDF.js worker
 pdfjsLib.GlobalWorkerOptions.workerSrc = pdfjsLib.GlobalWorkerOptions.workerSrc || `//cdnjs.cloudflare.com/ajax/libs/pdf.js/${pdfjsLib.version}/pdf.worker.min.js`;
 
+// 欢迎页组件
+function Welcome({ onEnter }) {
+  return (
+    <div className="welcome-overlay">
+      <div className="welcome-content">
+        <img src="/logo.svg" alt="DocuTwin Logo" className="welcome-logo" />
+        <h1 className="welcome-title">DocuTwin</h1>
+        <p className="welcome-desc">智能文档对比与协作平台，支持PDF、Word、HTML等格式，助力高效文档管理与比对。</p>
+        <button className="welcome-btn" onClick={onEnter}>进入 DocuTwin</button>
+      </div>
+    </div>
+  );
+}
+
 function App() {
   const [leftDocUrl, setLeftDocUrl] = useState('');
   const [leftDocName, setLeftDocName] = useState('');
@@ -26,6 +40,7 @@ function App() {
     const saved = localStorage.getItem('themeButtonPosition');
     return saved ? JSON.parse(saved) : { x: 20, y: 20 };
   });
+  const [showWelcome, setShowWelcome] = useState(true);
 
   const leftPane = useRef(null);
   const rightPane = useRef(null);
@@ -274,12 +289,17 @@ function App() {
     return null;
   }, []);
 
+  if (showWelcome) {
+    return <Welcome onEnter={() => setShowWelcome(false)} />;
+  }
+
   return (
     <div className="app-container">
-      <div className="app-header">
+      <header className="app-header">
         <div className="brand">
           <img src="/logo.svg" alt="DocuTwin Logo" className="app-logo" />
           <h1>DocuTwin</h1>
+          <span className="brand-tagline">智能文档对比与协作平台</span>
         </div>
         <button 
           ref={themeButtonRef}
@@ -309,7 +329,7 @@ function App() {
             </div>
           </div>
         </button>
-      </div>
+      </header>
 
       <div className="main-content">
         {/* 左侧面板 - 原文 */}
