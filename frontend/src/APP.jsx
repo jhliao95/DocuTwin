@@ -17,7 +17,7 @@ function Welcome({ onEnter }) {
       <div className="welcome-content">
         <img src="/logo.svg" alt="DocuTwin Logo" className="welcome-logo" />
         <h1 className="welcome-title">DocuTwin</h1>
-        <p className="welcome-desc">智能文档对比与协作平台，支持PDF、Word、HTML等格式，助力高效文档管理与比对。</p>
+        <p className="welcome-desc">多格式文档智能比对平台，支持PDF、Word、HTML等格式，助力高效文档管理与比对。</p>
         <button className="welcome-btn" onClick={onEnter}>进入 DocuTwin</button>
       </div>
     </div>
@@ -299,7 +299,7 @@ function App() {
         <div className="brand">
           <img src="/logo.svg" alt="DocuTwin Logo" className="app-logo" />
           <h1>DocuTwin</h1>
-          <span className="brand-tagline">智能文档对比与协作平台</span>
+          <span className="brand-tagline">多格式文档智能比对平台</span>
         </div>
         <button 
           ref={themeButtonRef}
