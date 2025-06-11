@@ -118,14 +118,14 @@ body {
   --border-radius-lg: 12px;
   --border-radius-full: 9999px; /* 完美圆形 */
 
-  /* 阴影系统 */
-  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
-  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1), 0 1px 3px rgba(0, 0, 0, 0.08);
-  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+  /* 阴影系统 - 优化阴影效果 */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.12), 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.12), 0 4px 6px rgba(0, 0, 0, 0.05);
 
-  /* 过渡动画 */
-  --transition-duration-short: 0.15s;
-  --transition-duration-normal: 0.3s;
+  /* 过渡动画 - 优化过渡时间 */
+  --transition-duration-short: 0.2s;
+  --transition-duration-normal: 0.25s;
   --transition-timing-ease-out: cubic-bezier(0.25, 0.46, 0.45, 0.94); /* easeOutQuad */
   --transition-timing-ease-in-out: cubic-bezier(0.42, 0, 0.58, 1); /* easeInOutQuad */
 }
@@ -133,15 +133,15 @@ body {
 [data-theme="dark"] {
   color-scheme: dark; /* 告知浏览器是深色主题 */
   
-  /* Dark Theme Colors */
-  --background-primary: #1a202c; /* 深色背景 */
-  --background-secondary: #2d3748; /* 辅助深色背景 */
-  --surface-card: #2d3748; /* 深色卡片表面色 */
-  --surface-elevated: #1a202c; /* 稍微凸起的深色表面色 */
+  /* Dark Theme Colors - 微调深色主题颜色 */
+  --background-primary: #1a1d23;
+  --background-secondary: #282c34;
+  --surface-card: #282c34;
+  --surface-elevated: #1a1d23;
 
-  --text-color-primary: #e2e8f0; /* 主要文本色 */
-  --text-color-secondary: #a0aec0; /* 次要文本色 */
-  --text-color-muted: #718096; /* 静音文本色 */
+  --text-color-primary: #e6e8eb;
+  --text-color-secondary: #a8adb8;
+  --text-color-muted: #767c85;
   --text-color-button-light: #ffffff; /* 亮色按钮文本 */
   --text-color-button-dark: #212529; /* 暗色按钮文本 */
 
@@ -161,6 +161,9 @@ body {
   --accent-color-warning: #f6e05e; /* 警告色 */
   --accent-color-danger: #fc8181; /* 危险色 */
 
+  /* 优化深色模式阴影 */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.35), 0 1px 3px rgba(0, 0, 0, 0.2);
   --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
   --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.25), 0 1px 3px rgba(0, 0, 0, 0.15);
   --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.25), 0 4px 6px rgba(0, 0, 0, 0.1);
